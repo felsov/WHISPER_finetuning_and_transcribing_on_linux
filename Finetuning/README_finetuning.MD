@@ -38,8 +38,7 @@ torch.cuda.is_available() #True
 
 ### B) Training Steps
 1. Create a CSV with first column "file_name" with full path to audio files and a column "transcription" with the transcription of the corresponding audio file
-![img.png](img.png)
 2. Set metadata_path equal to r"fullpathtoCSV" in training.py
 3. Edit training parameters such as whisper model (small, medium, or large) and training steps
 4. Run training.py to get trained model
-5. Follow transcription README.md to use the outputted trained model
+5. Follow README_transcribing.md to use the outputted trained model
