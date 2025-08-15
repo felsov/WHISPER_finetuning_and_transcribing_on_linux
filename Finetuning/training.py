@@ -1,8 +1,6 @@
 #Use GPU:
 device = "cuda"
 
-
-#LOAD DATASET******************************************************************************
 from datasets import load_dataset, DatasetDict
 from datasets import Dataset, DatasetDict
 import pandas as pd
@@ -32,7 +30,7 @@ dataset_dict = DatasetDict({
 # make common_voice dataset_dict
 common_voice = dataset_dict
 
-#LOAD WhisperFeatureExtractor (turns audio into understandable numbers (spectrogram) for computer)******************************************************************************
+#LOAD WhisperFeatureExtractor (turns audio into understandable numbers (spectrogram) ******************************************************************************
 from transformers import WhisperFeatureExtractor
 
 feature_extractor = WhisperFeatureExtractor.from_pretrained("openai/whisper-small")
@@ -165,4 +163,5 @@ trainer = Seq2SeqTrainer(
 if __name__ == "__main__":
     trainer.train()
     print("This will only run if training.py is executed directly.")
-    print("Done! :)")
+
+print("Done! :)")
