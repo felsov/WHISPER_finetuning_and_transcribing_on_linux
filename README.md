@@ -1,58 +1,38 @@
-# Local Whisper ASR Fine-Tuning & Transcription
+# Finetuning OpenAI's Audio Transcription Model 
 
-Welcome! This repository provides a framework for fine-tuning OpenAI's Whisper automatic speech recognition (ASR) model and running transcriptions **entirely locally**.  
-It is designed for users who want to train on personal or sensitive audio data while keeping all models and processing on their own machine.
-
----
-
-## Overview
-
-This project allows users to:
-
-- Fine-tune Whisper on their own datasets.  
-- Run transcription using either a fine-tuned model or the base Whisper models.  
-
-All processing is local, making this suitable for privacy-sensitive audio data. Evaluation of transcription performance (e.g., WER) is left to the user and can be done externally with preferred tools.
+Welcome! 
+-> This repository provides an outline for fine-tuning OpenAI's Whisper automatic speech recognition (ASR) model **with your own data**. It also provides an outline for running transcriptions with the trained model (or the base models of Whisper.)
+-> It is all done **entirely locally** on your machine, making it ideal for those who need to train on person or sensitive audio data and do not want to risk it being leaked.
+-> This project was done on a Linux machine, however, with few edits, it remains a similar process for Windows
+-> The source of this code came from https://huggingface.co/blog/fine-tune-whisper , a finetuning event for multilingual language training of Whisper
 
 ---
 
 ## Repository Structure
 
-- **Finetuning/** – Scripts and instructions for preparing data and fine-tuning Whisper models.  
-- **Transcribing/** – Scripts for using trained models (or base models) to transcribe audio files.  
+-> **Finetuning/** – skeleton for preparing data and fine-tuning your own Whisper models
+-> **Transcribing/** – skeleton for using trained models (or base Whisper models) to transcribe your own audio files
 
-Each folder contains its own `README.md` with detailed instructions.
-
----
-
-## Key Features
-
-- **Flexible Dataset Preparation:** Users provide a CSV with `file_name` (audio paths) and `transcription` columns.  
-- **Preprocessing:** Audio resampling, feature extraction, and tokenization using Hugging Face `WhisperProcessor`.  
-- **Fine-Tuning:** Adjustable model size, learning rate, batch size, and training steps.  
-- **Local Execution:** All audio, models, and results stay on the user’s machine.  
+Each folder contains its own `README.md` with more detailed instructions.
 
 ---
 
-## Results from Thesis Analysis
+## How to Best Train (Results from a Thesis Analysis)
 
-While the repository does not include example audio, research performed for the senior thesis explored how different fine-tuning strategies impact Whisper’s transcription accuracy in a medical domain:
+This project stemmed from an internship project at Emory Proton Center and was then fully fledged out later during a senior thesis project at Agnes Scott College. The thesis analysed the best methods of training the system for medical terminology (analyzing different datasets and training parameters.) While the repository does not include example audio, the following outlines the type of datasets used for the analysis.
 
 - **Dataset:** Simulated audio clips representing proton therapy terminology.  
   - Two types: 1-word clips and 1-sentence clips  
   - ~30–40 training examples per dataset  
-  - Separate evaluation dataset of ~15-second sections of simulated chart rounds  
+  - Separate evaluation dataset of ~15-second sections of simulated chart rounds
 
-- **Research Question 1:** Which type of training data performs better?  
-  - **Result:** 1-sentence clips outperformed 1-word clips with ~5% lower word-error rate (WER).  
-  - Insight: Training on full sentences allows the model to learn context and phrase structure.
+The results indicate the following (however, it is important to keep in mind datasets have one of the biggest impacts:)
 
-- **Research Question 2:** Optimal training parameters (learning rate, number of steps)  
-  - **Result:** Learning rate ~1e-7 performed best; number of steps had smaller effect.  
-  - Over-training (high learning rate + high steps) reduced performance.  
-  - Several fine-tuned models achieved better WER than the pre-trained Whisper baseline.
+- **Results:**
+  - 1-sentence clips outperformed 1-word clips with ~5% lower word-error rate (WER).  
+  - Altering the learning rate had a larger impact than the number of steps.
+  - Over-training (high learning rate + high steps) reduced performance.
 
-**Takeaway:** Fine-tuning Whisper on a small, domain-specific dataset with complete sentences and optimized parameters improves transcription accuracy, demonstrating a feasible approach for privacy-sensitive domains.
 
 ---
 
