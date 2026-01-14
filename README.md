@@ -1,17 +1,17 @@
 # Finetuning OpenAI's Audio Transcription Model 
 
 Welcome! 
--> This repository provides an outline for fine-tuning OpenAI's Whisper automatic speech recognition (ASR) model **with your own data**. It also provides an outline for running transcriptions with the trained model (or the base models of Whisper.)
--> It is all done **entirely locally** on your machine, making it ideal for those who need to train on person or sensitive audio data and do not want to risk it being leaked.
--> This project was done on a Linux machine, however, with few edits, it remains a similar process for Windows
--> The source of this code came from https://huggingface.co/blog/fine-tune-whisper , a finetuning event for multilingual language training of Whisper
+-> This repository provides an outline for fine-tuning OpenAI's Whisper automatic speech recognition (ASR) model **with your own data**. It also provides an outline for running transcriptions with the trained model (or the base models of Whisper.) \
+-> It is all done **entirely locally** on your machine, making it ideal for those who need to train on person or sensitive audio data and do not want to risk it being leaked. \
+-> This project was done on a Linux machine, however, with few edits, it remains a similar process for Windows \
+-> The source of this code came from https://huggingface.co/blog/fine-tune-whisper , a finetuning event for multilingual language training of Whisper \
 
 ---
 
 ## Repository Structure
 
--> **Finetuning/** – skeleton for preparing data and fine-tuning your own Whisper models
--> **Transcribing/** – skeleton for using trained models (or base Whisper models) to transcribe your own audio files
+-> **Finetuning/** – skeleton for preparing data and fine-tuning your own Whisper models \
+-> **Transcribing/** – skeleton for using trained models (or base Whisper models) to transcribe your own audio files \
 
 Each folder contains its own `README.md` with more detailed instructions.
 
